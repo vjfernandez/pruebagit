@@ -1,13 +1,194 @@
+<!--
+           .--'''''''''--.
+        .'      .---.      '.
+       /    .-----------.    \
+      /        .-----.        \
+      |       .-.   .-.       |
+      |      /   \ /   \      |
+       \    | .-. | .-. |    /
+        '-._| | | | | | |_.-'
+            | '-' | '-' |
+             \___/ \___/
+          _.-'  /   \  `-._
+        .' _.--|     |--._ '.
+        ' _...-|     |-..._ '
+               |     |
+               '.___.'
+                 | |
+                _| |_
+               /\( )/\
+              /  ` '  \
+             | |     | |
+             '-'     '-'
+             | |     | |
+             | |     | |
+             | |-----| |
+          .`/  |     | |/`.
+          |    |     |    |
+          '._.'| .-. |'._.'
+                \ | /
+                | | |
+                | | |
+                | | |
+               /| | |\
+             .'_| | |_`.
+             `. | | | .'
+          .    /  |  \    .
+         /o`.-'  / \  `-.`o\
+        /o  o\ .'   `. /o  o\
+        `.___.'       `.___.'
+
+          No mires el código
+
+!-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
+    <link rel="mask-icon" type="" href="https://production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" />
+    <title>CodePen - Calculadora de running</title>
+    <style>
+        body {
+            font-family: Calibri, Arial, Sans-Serif;
+            background-color: #F5ECCE;
+        }
+        
+        #izquierda {
+            width: 200px;
+            float: left;
+        }
+        
+        #derecha {
+            width: 300px;
+            float: left;
+            font-weight: bold;
+        }
+    </style>
 </head>
 
-<body>
-    
+<body translate="no">
+    <h2>Calculadora de running</h2>
+    <div id="izquierda"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Running_icon_-_Noun_Project_17825.svg/2000px-Running_icon_-_Noun_Project_17825.svg.png" style="max-width:100px;">
+        <br>
+        <p>
+            <label for="campokilometros">Kilómetros:</label>
+            <br>
+            <input type="number" min="1" id="campokilometros" oninput="calcular();">
+            <br>
+            <br>
+            <label for="campominutos">Minutos corriendo:</label>
+            <br>
+            <input type="number" min="1" id="campominutos" oninput="calcular();">
+    </div>
+    <div id="derecha"> Velocidad: <span id="velocidad">0</span> Km/h
+        <br>Calorías consumidas: <span id="calorias">0</span>
+
+        <br>Intensidad: <span id="intensidad" style="color:blue">desconocida</span> </p>
+    </div>
+    <script>
+        function calcular() {
+            var kilometros = document.getElementById("campokilometros").value;
+            var minutos = document.getElementById("campominutos").value;
+            var velocidad = kilometros / (minutos / 60);
+            var calorias = 80 * kilometros;
+            var intensidad;
+            var colorintensidad;
+            document.getElementById("velocidad").innerHTML = velocidad.toFixed(2);
+
+            document.getElementById("calorias").innerHTML = calorias;
+            if (velocidad < 8) {
+                intensidad = "baja";
+                colorintensidad = "green";
+            }
+            if (velocidad >= 8 && velocidad <= 12) {
+                intensidad = "media";
+                colorintensidad = "orange";
+            }
+            if (velocidad >= 12) {
+                intensidad = "alta";
+                colorintensidad = "red";
+            }
+            document.
+
+            getElementById("intensidad").innerHTML = intensidad;
+            document.getElementById("intensidad").style.color = colorintensidad;
+        }
+    </script>
 </body>
+
 </html>
